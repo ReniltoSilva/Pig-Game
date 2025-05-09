@@ -73,6 +73,13 @@ btnHold.addEventListener('click', function () {
   diceField.classList.add('hidden');
   document.querySelector(`#score--${activePlayer}`).textContent = currentScore;
   document.querySelector(`#current--${activePlayer}`).textContent = 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--active');
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
   currentScore = 0;
   console.log(scores);
 });
