@@ -41,6 +41,23 @@ let activePlayer = 0;
 let totalScorePZero = 0;
 let totalScorePOne = 0;
 
+//Function to reset whole game
+btnNew.addEventListener('click', function () {
+  diceField.classList.add('hidden');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--active');
+  activePlayer = 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.add('player--active');
+  totalScoreFieldPZero.textContent = 0;
+  currentFieldPZero.textContent = 0;
+  totalScoreFieldPOne.textContent = 0;
+  currentfieldPOne.textContent = 0;
+  console.log('Game Reseted');
+});
+
 //Funtion to roll dice and generate random Number
 btnRoll.addEventListener('click', function () {
   //Generate random number
