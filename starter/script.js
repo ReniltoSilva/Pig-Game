@@ -73,33 +73,41 @@ btnRoll.addEventListener('click', function () {
     document.querySelector(`#current--${activePlayer}`).textContent =
       currentScore;
   } else {
-    document.querySelector(`#current--${activePlayer}`).textContent = 0;
+    // document.querySelector(`#current--${activePlayer}`).textContent = 0;
+    // document.querySelector(`#score--${activePlayer}`).textContent = 0;
+    // currentScore = 0;
+    // activePlayer = activePlayer === 0 ? 1 : 0;
+    // playerZero.classList.toggle('player--active');
+    // playerOne.classList.toggle('player--active');
+    scores[activePlayer] = 0;
     document.querySelector(`#score--${activePlayer}`).textContent = 0;
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--active');
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0;
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add('player--active');
+    changePlayers();
   }
 });
 
+//Function to hold the total value and change players
 btnHold.addEventListener('click', function () {
   diceField.classList.add('hidden');
-  document.querySelector(`#score--${activePlayer}`).textContent = currentScore;
-  document.querySelector(`#current--${activePlayer}`).textContent = 0;
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--active');
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.add('player--active');
-  currentScore = 0;
-  console.log(scores);
+  // document.querySelector(`#current--${activePlayer}`).textContent = 0;
+  // document.querySelector(`#score--${activePlayer}`).textContent = currentScore;
+  // activePlayer = activePlayer === 0 ? 1 : 0;
+  // currentScore = 0;
+  // playerZero.classList.toggle('player--active');
+  // playerOne.classList.toggle('player--active');
+  scores[activePlayer] += currentScore;
+  document.querySelector(`#score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  changePlayers();
 });
+
+function changePlayers() {
+  document.querySelector(`#current--${activePlayer}`).textContent = 0;
+  // document.querySelector(`#score--${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  currentScore = 0;
+  playerZero.classList.toggle('player--active');
+  playerOne.classList.toggle('player--active');
+}
 
 // // Function to change players turn
 // function changePlayer() {
