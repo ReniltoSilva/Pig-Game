@@ -121,8 +121,8 @@ btnHold.addEventListener('click', function () {
     }
   }
 
-  //Finish the game if >= 100 or keep playing
-  if (scores[activePlayer] >= 10) {
+  //Finish the game if >= 20 or keep playing
+  if (scores[activePlayer] >= 20) {
     //Finish the game
     playing = false;
 
