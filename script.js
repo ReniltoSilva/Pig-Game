@@ -97,6 +97,10 @@ btnHold.addEventListener('click', function () {
     scores[activePlayer] += currentScore;
     document.querySelector(`#score--${activePlayer}`).textContent =
       scores[activePlayer];
+
+    if (scores[activePlayer] >= 10) {
+      updateWinsScore();
+    }
   }
 
   //Finish the game if >= 100 or keep playing
@@ -112,8 +116,6 @@ btnHold.addEventListener('click', function () {
       .querySelector(`.player--${activePlayer}`)
       .classList.remove('player--active');
     document.querySelector(`#current--${activePlayer}`).textContent = 0;
-
-    updateWinsScore();
 
     //Reset current score for both players
     currentScore = 0;
@@ -139,7 +141,6 @@ function updateWinsScore() {
     containerP0.classList.remove('active-span-player');
     containerP1.classList.remove('active-span-player');
   }
-  console.log(winsScore);
 }
 
 //FUNCTION TO CHANGE PLAYERS & DISPLAY CORRECT SCORE
