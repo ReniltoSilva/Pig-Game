@@ -1,5 +1,7 @@
 'use strict';
 
+const jsConfetti = new JSConfetti();
+
 //Saved Elements
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
@@ -104,6 +106,18 @@ btnHold.addEventListener('click', function () {
 
     if (scores[activePlayer] >= 10) {
       updateWinsScore();
+      jsConfetti.addConfetti({
+        confettiColors: [
+          '#ff0a54',
+          '#ff477e',
+          '#ff7096',
+          '#ff85a1',
+          '#fbb1bd',
+          '#f9bec7',
+        ],
+        confettiRadius: 5,
+        confettiNumber: 50,
+      });
     }
   }
 
@@ -134,6 +148,8 @@ btnHold.addEventListener('click', function () {
 
 //FUNCTION TO UPDATE WINS SCORE
 function updateWinsScore() {
+  jsConfetti.addConfetti();
+
   winsScore[activePlayer] = winsScore[activePlayer] + 1;
   document.querySelector(
     `.player--${activePlayer}-wins-container`
