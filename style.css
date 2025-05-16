@@ -192,6 +192,12 @@ main {
   top: 46.1rem;
 }
 
+.btn-inactive {
+  background-color: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  opacity: 0.5;
+}
+
 .btn:active {
   transform: translate(-50%, 3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);

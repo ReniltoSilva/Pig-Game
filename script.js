@@ -47,6 +47,10 @@ const init = function () {
   playerOne.classList.remove('player--active');
   playerZero.classList.remove('player--winner');
   playerOne.classList.remove('player--winner');
+
+  //Remove class on buttons accordingly
+  btnRoll.classList.remove('btn-inactive');
+  btnHold.classList.remove('btn-inactive');
 };
 
 init();
@@ -116,6 +120,10 @@ btnHold.addEventListener('click', function () {
       .querySelector(`.player--${activePlayer}`)
       .classList.remove('player--active');
     document.querySelector(`#current--${activePlayer}`).textContent = 0;
+
+    //Add clas 'btn-inactive' to display button inactivity
+    btnRoll.classList.add('btn-inactive');
+    btnHold.classList.add('btn-inactive');
 
     //Reset current score for both players
     currentScore = 0;
