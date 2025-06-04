@@ -92,6 +92,7 @@ btnRoll.addEventListener('click', function () {
 
 //FUNCTION TO HOLD THE TOTAL VALUE & CHANGE PLAYERS.
 btnHold.addEventListener('click', function () {
+  // REVIEW
   if (playing) {
     diceField.classList.add('hidden');
     // document.querySelector(`#current--${activePlayer}`).textContent = 0;
@@ -106,18 +107,6 @@ btnHold.addEventListener('click', function () {
 
     if (scores[activePlayer] >= 10) {
       updateWinsScore();
-      jsConfetti.addConfetti({
-        confettiColors: [
-          '#ff0a54',
-          '#ff477e',
-          '#ff7096',
-          '#ff85a1',
-          '#fbb1bd',
-          '#f9bec7',
-        ],
-        confettiRadius: 5,
-        confettiNumber: 50,
-      });
     }
   }
 
@@ -141,6 +130,21 @@ btnHold.addEventListener('click', function () {
 
     //Reset current score for both players
     currentScore = 0;
+
+    jsConfetti.addConfetti({
+      confettiColors: [
+        '#ff0a54',
+        '#ff477e',
+        '#ff7096',
+        '#ff85a1',
+        '#fbb1bd',
+        '#f9bec7',
+      ],
+      confettiRadius: 5,
+      confettiNumber: 50,
+    });
+
+    jsConfetti.addConfetti();
   } else {
     changePlayers();
   }
@@ -148,8 +152,6 @@ btnHold.addEventListener('click', function () {
 
 //FUNCTION TO UPDATE WINS SCORE
 function updateWinsScore() {
-  jsConfetti.addConfetti();
-
   winsScore[activePlayer] = winsScore[activePlayer] + 1;
   document.querySelector(
     `.player--${activePlayer}-wins-container`
